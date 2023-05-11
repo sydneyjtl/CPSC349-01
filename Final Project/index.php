@@ -5,9 +5,10 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+       <?php echo "Hello";?>
         
         <ul>
-            <li class="left"><a class="active" href="./home.html">HOME</a></li>
+            <li class="left"><a class="active" href="index.php">HOME</a></li>
             <li class="left"><a href="./collection.html">COLLECTION</a></li>
             <li class="left"><a href="./upload.html">UPLOAD</a></li>
             <li class="right">

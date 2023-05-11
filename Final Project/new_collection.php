@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "card_collector";
-$password = "collection_pwd";
+$username = "root";
+$password = "cardcollection_pwd";
 
 $conn = new mysqli($servername, $username, $password);
 if ($conn->connect_error) {
@@ -10,10 +10,10 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 $sql = "CREATE DATABASE myCollection";
-if ($conn->query($sql) === TRUE) {
+if (mysqli_query($conn, $sql)) {
     echo "Database created successfully";
 } else {
-    echo "Error creating database: " . $conn->error;
+    echo "Error creating database.";
 }
 
 $sql = "CREATE TABLE MyCards (
@@ -21,17 +21,18 @@ $sql = "CREATE TABLE MyCards (
     CardName varchar(255) NOT NULL,
     CardOrigin varchar(255),
     CardImage image,
+    Favorite boolean,
     UNIQUE (ID),
     PRIMARY KEY (ID)
     )";
     
-if ($conn->query($sql) === TRUE) {
+if (mysqli_query($conn, $sql)) {
     echo "Table MyCards created successfully";
 } else {
-    echo "Error creating table: " . $conn->error;
+    echo "Error creating table.";
 }
 
-$conn->close();
+mysqli_close($con);
 
 ?>
 

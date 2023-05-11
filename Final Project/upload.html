@@ -27,23 +27,23 @@
 
         <div style = "padding:30px;text-align: center;">
             <h1>COMING SOON</h1>
-            <form action="cards.php" method="post" enctype="multipart/form-data">
+            <form action="upload.php" method="POST">
                 <label for="image">Card Image</label>
                 <div id="fileupload">
                     <img id="card_image">
                     <div id="wrapper">
-                        <input type="file" id="image" name="cardimage" accept="image/*" onchange="preview_image(event)">
+                        <input type="file" id="image" name="cardimage" accept="image/*" onchange="preview_image(event)" required>
                     </div>
                 </div>
 
                 <label for="name">Card Name</label>
-                <input type="text" id="name" name="cardname" placeholder="Name of Card">
+                <input type="text" id="name" name="cardname" placeholder="Name of Card" required>
                 <label for="origin">Card Origin</label>
                 <input type="text" id="origin" name="cardorigin" placeholder="Card Set or Album">
                 <label for="favorite">Add to Favorites</label>
-                <input type="checkbox" id="favorite" name="favoritecard" value="Favorite">
+                <input type="checkbox" id="favorite" name="favoritecard" value="1">
                 
-                <input type="submit" value="Save">
+                <input type="submit" id="submit" value="Save">
             </form>
             
         </div>

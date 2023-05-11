@@ -1,24 +1,41 @@
 <?php
+
 $servername = "localhost";
-$username = "card_collector";
-$password = "collection_pwd";
-$dbname = "myCollection";
+$username = "root";
+$password = "";
+$dbname = "CardCollection";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-$sql = "INSERT INTO MyCards (";
-    
-if ($conn->query($sql) === TRUE) {
-    echo "New card created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+$con = mysqli_connect($servername, $username, $password, $dbname);
+if($con === false) {
+    die("ERROR: Could not connect. "
+        . mysqli_connect_error());
 }
 
-$conn->close();
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+    $name = $_POST['cardname'];
+    $origin = $_POST['cardorigin'];
+    $image = $_POST['cardimage'];
+    if($_POST['favoritecard'] == NULL) {
+        $favorite = 0;
+    } else {
+        $favorite = 1;
+    }
+}
+
+// echo var_dump($name, $origin, $image, $favorite);
+
+
+$sql = "INSERT INTO MyCards (CardName, CardOrigin, CardImage, Favorite)
+                     VALUES ('$name', '$origin', '$image', '$favorite')";
+
+$rs = mysqli_query($con, $sql);
+// if ($rs) {
+//     echo "Card added to collection!";
+// }
+
+mysqli_close($con);
+header("Location: upload.html");
 
 ?>
 
