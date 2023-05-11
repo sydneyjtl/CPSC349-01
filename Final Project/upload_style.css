@@ -1,0 +1,82 @@
+html * {
+    font-family: 'Arial', sans-serif;
+}
+
+form {
+    text-align: center;
+    background-color: #eaeaea;
+    padding: 50px;
+    
+}
+
+label {
+    font-size: large;
+}
+
+#card_image {
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+}
+
+#wrapper {
+    width: 100%;
+    margin: 10px;
+}
+
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: medium;
+}
+
+input[type=file] {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    margin: auto;
+    font-size: medium;
+}
+
+#fileupload {
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=checkbox] {
+    margin-left: 5px;
+    transform: scale(1.5);
+    accent-color: #04aa60;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #04aa60;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: large;
+}
+
+input[type=submit]:hover {
+    background-color: #ccc;
+}

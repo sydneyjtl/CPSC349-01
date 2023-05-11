@@ -3,6 +3,19 @@
     <head>
         <title>Upload</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="upload_style.css">
+        <script>
+            function preview_image(event)
+            {
+                var fileReader = new FileReader();
+                fileReader.onload = function()
+                {
+                    var output = document.getElementById('card_image');
+                    output.src = fileReader.result
+                }
+                fileReader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
     </head>
     <body>
 
@@ -14,8 +27,28 @@
 
         <div style = "padding:30px;text-align: center;">
             <h1>COMING SOON</h1>
+            <form action="cards.php" method="post" enctype="multipart/form-data">
+                <label for="image">Card Image</label>
+                <div id="fileupload">
+                    <img id="card_image">
+                    <div id="wrapper">
+                        <input type="file" id="image" name="cardimage" accept="image/*" onchange="preview_image(event)">
+                    </div>
+                </div>
+
+                <label for="name">Card Name</label>
+                <input type="text" id="name" name="cardname" placeholder="Name of Card">
+                <label for="origin">Card Origin</label>
+                <input type="text" id="origin" name="cardorigin" placeholder="Card Set or Album">
+                <label for="favorite">Add to Favorites</label>
+                <input type="checkbox" id="favorite" name="favoritecard" value="Favorite">
+                
+                <input type="submit" value="Save">
+            </form>
             
         </div>
+
+
 
     </body>
 </html>
